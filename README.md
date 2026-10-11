@@ -1,42 +1,57 @@
-# stateaxis-aclgraph-dispatcher
+# StateAxis ACLGraph Dispatcher
 
 Extension ID: `org.vllm-hust.stateaxis-aclgraph-dispatcher`
 
-Descriptor and capability-governed ACLGraph dispatch with fail-closed eager fallback.
+This MOD owns the bounded activation contract for StateAxis issues
+[#6](https://github.com/Qixin-Gaoke/stateaxis/issues/6) and
+[#67](https://github.com/Qixin-Gaoke/stateaxis/issues/67). The mechanism makes
+one versioned descriptor/capability decision per Qwen2 dense BF16 decode batch,
+uses ACLGraph only for admitted B1-B32 shapes with stable addresses, falls back
+to eager execution for known unsupported cases, and fails closed on malformed
+or stale identity.
 
-This repository is the independent MOD boundary for StateAxis issues [#6](https://github.com/Qixin-Gaoke/stateaxis/issues/6), [#67](https://github.com/Qixin-Gaoke/stateaxis/issues/67).
-It is deliberately `import_only`, default-off, and cannot be enabled. The split does
-not inherit correctness, device, performance, or publication qualification from the
-aggregate StateAxis repository.
+## Activation
 
-## Evidence boundary
-
-Status: **negative**.
-
-Qwen B1–B32 authority and exactness passed; throughput regressed 0.324%, so no material end-to-end benefit is claimed.
-
-The copied evidence and its SHA-256 are recorded in `PROVENANCE.json`. Negative,
-failed, and inconclusive results are retained. Microbenchmarks and component results
-must not be restated as online end-to-end gains.
-
-## Install and inspect
+The default remains eager ACLNN. The candidate can be enabled only through the
+vLLM-HUST Extension Manager/ECPA Manifest 0.3 `additional_config`; StateAxis
+rejects direct ambient `STATE_ENGINE_ONLINE_DECODE_EXECUTION` activation. The
+validated host then derives the worker-local execution policy and records the
+MOD identity in the assembly fingerprint.
 
 ```bash
 python -m pip install .
 vllm-hust-ext extension inspect org.vllm-hust.stateaxis-aclgraph-dispatcher
-vllm-hust-ext extension check org.vllm-hust.stateaxis-aclgraph-dispatcher
+VLLM_HUST_EXT_CONFIG=evidence/ecpa-contract-20261011/manager-config.json \
+  vllm-hust-ext extension check org.vllm-hust.stateaxis-aclgraph-dispatcher
+VLLM_HUST_EXT_CONFIG=evidence/ecpa-contract-20261011/manager-config.json \
+  vllm-hust-ext extension plan org.vllm-hust.stateaxis-aclgraph-dispatcher
+VLLM_HUST_EXT_CONFIG=evidence/ecpa-contract-20261011/manager-config.json \
+  vllm-hust-ext run --dry-run -- /path/to/native_state_engine
 ```
 
-Discovery does not enable the MOD. A future active revision must extract an
-independently reviewable implementation, declare exclusive resources where needed,
-and pass exactness, lifecycle, release, failure-recovery, and matched real-online
-gates.
+## Evidence boundary
+
+The retained 2026-08-16 Qwen2.5-14B BF16 3+3 matched run was token-exact and
+lifecycle-clean, with 279 decisions per candidate run, zero fallback/rebuild,
+and a 0.324% request-throughput regression. This is a negative result for that
+cell, not a claim that graphs cannot help other architectures or workloads.
+
+The 2026-10-11 revision proves the active ECPA contract, hash binding, assembly
+identity separation, C++ decision contract, full worker build, and direct-env
+rejection. It does not contain a fresh real-online run for the new host/MOD
+identity, so no current performance claim is made.
+
+See [EVIDENCE.md](EVIDENCE.md) and
+[`RESULT.json`](evidence/ecpa-contract-20261011/RESULT.json).
 
 ## Validate
 
 ```bash
 python -m pip install -e '.[test]'
+ruff check .
+ruff format --check .
 pytest -q
+python -m build
 ```
 
 Maintainer: Shuhao Zhang (Tony), directly responsible; no advisor is declared.
