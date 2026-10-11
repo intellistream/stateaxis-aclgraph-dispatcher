@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "stateaxis-aclgraph-dispatcher"
-version = "0.1.0.dev0"
-description = "stateaxis-aclgraph-dispatcher inert vLLM-HUST contract descriptor"
+version = "0.2.0"
+description = "StateAxis identity-bound ACLGraph capability dispatcher MOD"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "Apache-2.0"
@@ -16,6 +16,9 @@ test = ["pytest>=8", "ruff>=0.12", "vllm-hust-ext==0.2.0.dev0"]
 
 [project.entry-points."vllm_hust.extension_bundles"]
 "org.vllm-hust.stateaxis-aclgraph-dispatcher" = "stateaxis_aclgraph_dispatcher"
+
+[project.entry-points."stateaxis.mod_handlers"]
+aclgraph_dispatcher = "stateaxis_aclgraph_dispatcher:aclgraph_dispatcher"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/stateaxis_aclgraph_dispatcher"]

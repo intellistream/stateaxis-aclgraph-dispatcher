@@ -1,0 +1,30 @@
+{
+  "schema_version": "stateaxis-mod-research/v1",
+  "mod_id": "org.vllm-hust.stateaxis-aclgraph-dispatcher",
+  "release_version": "0.2.0",
+  "source": {
+    "repository": "Qixin-Gaoke/stateaxis",
+    "issues": [6, 67],
+    "scope": "identity-bound Qwen2 dense BF16 decode ACLGraph capability dispatch"
+  },
+  "mechanism": {
+    "enabled": true,
+    "scope": "qwen2-dense-bf16-decode-b1-b32",
+    "descriptor_revision": 1,
+    "capability_revision": 1,
+    "execution_policy": "acl_graph_dispatcher",
+    "eager_default": true,
+    "sampling_fallback_to_eager": true,
+    "unsupported_fallback_to_eager": true,
+    "malformed_or_stale_fail_closed": true,
+    "state_mutation_before_capture": true,
+    "stable_addresses_required": true,
+    "decision_telemetry_required": true,
+    "fail_closed": true
+  },
+  "evidence_boundary": {
+    "performance_qualified": false,
+    "historical_result": "Qwen2.5-14B BF16 B1-B32 exact and lifecycle-clean; request throughput -0.324% in the frozen matched cell",
+    "required_result": "a new identity-bound real-online matched run is required before any current performance claim"
+  }
+}

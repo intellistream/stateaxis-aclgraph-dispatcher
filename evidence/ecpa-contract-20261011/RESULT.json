@@ -1,0 +1,60 @@
+{
+  "schema_version": "vllm-hust-benchmark/stateaxis-mod-on-off/v1",
+  "generated_at": "2026-10-11T10:22:30Z",
+  "mod_id": "org.vllm-hust.stateaxis-aclgraph-dispatcher",
+  "release_version": "0.2.0",
+  "host": {
+    "repository": "Qixin-Gaoke/stateaxis",
+    "commit": "8e4627bb6d1ad14fc953e6ed0926289df065652b",
+    "pull_request": 521,
+    "dirty": false
+  },
+  "activation": {
+    "manager": "vLLM-HUST Extension Manager/ECPA",
+    "manifest_schema": "0.3-experimental",
+    "research_manifest_sha256": "37127639a5d20de6b3460c2a3f7ba98d26c0eade23f023989e4358d5fac5ad00",
+    "extension_manifest_sha256": "bdddf90c10d2e51e708640261c8684d39c18778fdd3f5be76d4b7a0d191bdc44",
+    "direct_environment_activation": "REJECTED_AS_REQUIRED",
+    "worker_environment_owner": "validated StateAxis host"
+  },
+  "mechanism": {
+    "scope": "qwen2-dense-bf16-decode-b1-b32",
+    "descriptor_revision": 1,
+    "capability_revision": 1,
+    "known_unsupported_fallback": "eager",
+    "malformed_or_stale_identity": "fail_closed",
+    "sampling_graph_execution": false,
+    "decision_telemetry": true
+  },
+  "validation": {
+    "rust_check": "PASS",
+    "rust_lib_tests": {
+      "status": "PASS",
+      "passed": 431,
+      "failed": 0
+    },
+    "cpp_dispatcher_contract": "PASS",
+    "complete_cann_atb_worker_build": "PASS",
+    "assembly_off_sha256": "155df58d6d3c3e5d37b65700dbeeb173b12e2f3e974a348e34f2cee116ac7a25",
+    "assembly_on_sha256": "7122f8e0e5218afdc63ff4f5cf7ec648d236b016a96f2779727a34dc152ccf41",
+    "assembly_identity_separated": true
+  },
+  "historical_matched_real_npu": {
+    "source": "evidence/ISSUE67_ACLGRAPH_DISPATCHER_CLOSURE_20260816.md",
+    "workload": "Qwen2.5-14B BF16, 128 independent-cold requests, concurrency 32, 32 output tokens, B1-B32 graph authority",
+    "repetitions": "3+3 fresh services",
+    "exact": true,
+    "lifecycle_clean": true,
+    "candidate_decisions_per_run": 279,
+    "fallbacks": 0,
+    "rebuilds": 0,
+    "request_throughput_delta_percent": -0.324,
+    "classification": "negative_in_tested_cell"
+  },
+  "current_real_online": {
+    "status": "NOT_RUN_NEW_IDENTITY_REQUIRES_FRESH_SEALED_ARTIFACT",
+    "performance_result": null,
+    "performance_qualified": false
+  },
+  "claim": "The active ECPA boundary is validated. The retained matched cell was exact but -0.324% in request throughput; no current or general speedup is claimed."
+}
