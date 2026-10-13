@@ -34,14 +34,14 @@
     ]
   },
   "evidence": {
-    "qualification": "negative-in-historical-matched-cell-current-online-unqualified",
-    "latest_result": "evidence/ecpa-contract-20261011/RESULT.json",
+    "qualification": "historical_matched_real_npu_3plus3_no_material_benefit_active_revision_performance_unqualified",
+    "latest_result": "evidence/issue67-aclgraph-dispatcher-20260816-r3/summary.json",
     "index": "EVIDENCE.md",
     "performance_claims": [
       {
-        "label": "negative-in-historical-matched-cell",
+        "label": "historical-matched-real-npu-no-material-benefit",
         "scope": "Qwen2.5-14B BF16, B1-B32, frozen StateAxis 2026-08-16 3+3 matched run",
-        "result": "Token exact and lifecycle-clean; request throughput regressed 0.324%. No material end-to-end benefit is claimed."
+        "result": "All six runs were token-exact and lifecycle-clean; candidate applied 279 decisions and replays per run with zero fallback/rebuild. Median request throughput changed by -0.324%, TPOT P50 by +2.043%, and peak HBM by +6 MiB. The post-hoc paired throughput 95% interval crosses zero, so no material benefit or stable slowdown is claimed; the active ECPA revision remains performance-unqualified."
       }
     ]
   }

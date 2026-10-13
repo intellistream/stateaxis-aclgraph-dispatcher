@@ -33,8 +33,12 @@ VLLM_HUST_EXT_CONFIG=evidence/ecpa-contract-20261011/manager-config.json \
 
 The retained 2026-08-16 Qwen2.5-14B BF16 3+3 matched run was token-exact and
 lifecycle-clean, with 279 decisions per candidate run, zero fallback/rebuild,
-and a 0.324% request-throughput regression. This is a negative result for that
-cell, not a claim that graphs cannot help other architectures or workloads.
+and a 0.324% request-throughput median regression. Candidate TPOT P50 was 2.043%
+higher and peak HBM was 6 MiB higher. A post-hoc paired throughput analysis has
+a mean delta of -0.534% with a 95% Student-t interval of [-1.704%, +0.637%], so
+the data establish no material benefit, not a statistically stable slowdown.
+This is a negative qualification decision for that cell, not a claim that graphs
+cannot help other architectures or workloads.
 
 The 2026-10-11 revision proves the active ECPA contract, hash binding, assembly
 identity separation, C++ decision contract, full worker build, and direct-env
@@ -43,6 +47,8 @@ identity, so no current performance claim is made.
 
 See [EVIDENCE.md](EVIDENCE.md) and
 [`RESULT.json`](evidence/ecpa-contract-20261011/RESULT.json).
+The historical machine-readable R3 bundle is under
+`evidence/issue67-aclgraph-dispatcher-20260816-r3/`.
 
 ## Validate
 

@@ -1,0 +1,159 @@
+{
+  "format": "statecentric-issue67-aclgraph-dispatcher-identity-v1",
+  "identity_sha256": "590ac068643e9d7cb46e335ab2d634a1dde9a3dd9fe8a4793124dcb16bc06633",
+  "image": {
+    "id": "sha256:f4c89c293e076453e9eef9edb5fb9669740dccbd3c48619a9f976d775fc29b81",
+    "reference": "quay.io/ascend/vllm-ascend:v0.23.0rc1-openeuler"
+  },
+  "implementation_commit": "807a374d1025a6d7859498f18916c906231a19b6",
+  "issue": 67,
+  "records": {
+    "artifact_preparer": {
+      "bytes": 7269,
+      "path": "/tmp/statecentric-issue67/scripts/prepare_issue67_aclgraph_dispatcher_20260816_r1.sh",
+      "sha256": "a3131eddd8ce69501f2dae475dae3e3b27cf882150c7526f7cdea8b18899b669"
+    },
+    "candidate_artifact_identity": {
+      "bytes": 360,
+      "path": "/tmp/statecentric-issue67/.benchmarks/issue67-aclgraph-dispatcher-20260816-r1-candidate/execution_artifact_identity.bin",
+      "sha256": "e67acef40a830e5bc0e14608c1f227efcbe0400554e810e81ab3205a8647fdfd"
+    },
+    "candidate_execution_config": {
+      "bytes": 256,
+      "path": "/tmp/statecentric-issue67/.benchmarks/issue67-aclgraph-dispatcher-20260816-r1-candidate/execution_config.bin",
+      "sha256": "1abe239f1e87a2e75c69419eef0b9d11bf49eb20e9a81dbd09fc07fa894e6f37"
+    },
+    "candidate_graph_contract": {
+      "bytes": 852,
+      "path": "/tmp/statecentric-issue67/.benchmarks/issue67-aclgraph-dispatcher-20260816-r1-candidate/online_decode_graph_contract.json",
+      "sha256": "706a3fe46ff4d4aa45fd752490775d3b5e74c3efa181173ceab1a5520f8a0de5"
+    },
+    "candidate_pack_digest_cache": {
+      "bytes": 35830,
+      "path": "/tmp/statecentric-issue67/benchmarks/issue67_aclgraph_dispatcher_20260816_r3_candidate_pack_digest_cache.tsv",
+      "sha256": "e794c512823fc180adddbd1b6e8e5c72972f233e90c0c7348f88a395e450b878"
+    },
+    "candidate_resident_plan": {
+      "bytes": 2133,
+      "path": "/tmp/statecentric-issue67/.benchmarks/issue67-aclgraph-dispatcher-20260816-r1-candidate/resident_plan.json",
+      "sha256": "be4438d7576cf000c85287795a67add24f8276f8db508b0f807e56936051d69f"
+    },
+    "candidate_state_identity": {
+      "bytes": 3146,
+      "path": "/tmp/statecentric-issue67/.benchmarks/issue67-aclgraph-dispatcher-20260816-r1-candidate/native_state_identity.json",
+      "sha256": "f24bedd932fd87c34c6a9d24a031775333c304a56c52fd986f5601b9c52e563c"
+    },
+    "compatibility_digest": {
+      "bytes": 357056,
+      "path": "/tmp/statecentric-issue67/.benchmarks/issue67-aclgraph-rust-bundle-r1/state_compatibility_digest",
+      "sha256": "d5fb5dd4c090503342ebc7024759016d6bfb59212f19646a523a6f70f43cce93"
+    },
+    "control_artifact_identity": {
+      "bytes": 360,
+      "path": "/tmp/statecentric-issue67/.benchmarks/issue67-aclgraph-dispatcher-20260816-r1-control/execution_artifact_identity.bin",
+      "sha256": "e67acef40a830e5bc0e14608c1f227efcbe0400554e810e81ab3205a8647fdfd"
+    },
+    "control_execution_config": {
+      "bytes": 256,
+      "path": "/tmp/statecentric-issue67/.benchmarks/issue67-aclgraph-dispatcher-20260816-r1-control/execution_config.bin",
+      "sha256": "1abe239f1e87a2e75c69419eef0b9d11bf49eb20e9a81dbd09fc07fa894e6f37"
+    },
+    "control_pack_digest_cache": {
+      "bytes": 35828,
+      "path": "/tmp/statecentric-issue67/benchmarks/issue67_aclgraph_dispatcher_20260816_r3_control_pack_digest_cache.tsv",
+      "sha256": "c0f70ec027361df3fc940a517236fb37b91e7fbcdc2466c86a3fe46fa11264d8"
+    },
+    "control_resident_plan": {
+      "bytes": 2051,
+      "path": "/tmp/statecentric-issue67/.benchmarks/issue67-aclgraph-dispatcher-20260816-r1-control/resident_plan.json",
+      "sha256": "1a6c6a5e96855301518674ce0aeb94a466e19d41c5ba5ef1c51c488374651351"
+    },
+    "control_state_identity": {
+      "bytes": 3024,
+      "path": "/tmp/statecentric-issue67/.benchmarks/issue67-aclgraph-dispatcher-20260816-r1-control/native_state_identity.json",
+      "sha256": "61521a822494bccf5575c307892da776f037a95826379ac5de881f882ed2570e"
+    },
+    "dispatcher_header": {
+      "bytes": 4823,
+      "path": "/tmp/statecentric-issue67/native/include/statecentric/acl_graph_dispatcher.h",
+      "sha256": "65d5874dc61c5dfdb15d02309e04c2a14f9ca32819bba91396e1335348dcbda3"
+    },
+    "dispatcher_test": {
+      "bytes": 3927,
+      "path": "/tmp/statecentric-issue67/native/tests/acl_graph_dispatcher_test.cpp",
+      "sha256": "46da14612a61740dd2471e0e7df6b03ace7d4f587e7eeeef208fa177c1011eef"
+    },
+    "gate_runner": {
+      "bytes": 14976,
+      "path": "/tmp/statecentric-issue67/scripts/run_issue67_aclgraph_dispatcher_20260816_r3_gate.sh",
+      "sha256": "a894797f6e34b207a18a52eb06562f2b687eb1296fcfc56360602b15be3a2828"
+    },
+    "global_manifest": {
+      "bytes": 1632,
+      "path": "/home/shuhao/statecentric-ascend-engine/.benchmarks/issue8-capacity17-20260812-r6/global_pack/global_manifest.json",
+      "sha256": "5922b55ba03d371388d7fc68b4a4e55a152c1ce33917d057f534a83beaee1a4f"
+    },
+    "graph_contract_compiler": {
+      "bytes": 6975,
+      "path": "/tmp/statecentric-issue67/benchmarks/online_decode_graph_contract.py",
+      "sha256": "fc9d3e9d9fa71d0dd3bbf185f4316db42ef4dac7eba9ab26a41fc89e9567e959"
+    },
+    "identity_freezer": {
+      "bytes": 4681,
+      "path": "/tmp/statecentric-issue67/benchmarks/freeze_issue67_aclgraph_dispatcher_r3_identity.py",
+      "sha256": "468c04fe73d84fa51dc2e6f944c5e9f1996355406463b7d777993b272372e21e"
+    },
+    "layers_manifest": {
+      "bytes": 233565,
+      "path": "/home/shuhao/statecentric-ascend-engine/.benchmarks/issue8-capacity17-20260812-r8/worker_layers/all_layers_manifest.json",
+      "sha256": "a1c0e8156dd20fa06fb97b45a3c19a37c330b06d33cdcd9f37277d8f272e0530"
+    },
+    "model_manifest": {
+      "bytes": 168249,
+      "path": "/home/shuhao/statecentric-ascend-engine/.benchmarks/issue8-capacity17-20260812-r8/model_manifest.json",
+      "sha256": "a361693076e1f8e073711796b40269973396ad4b7ed4373a57bf9b6eafdc1912"
+    },
+    "native_launcher": {
+      "bytes": 222589,
+      "path": "/tmp/statecentric-issue67/scripts/run_native_http_npu_probe.sh",
+      "sha256": "dbbb82c99a3b699b321ed7204c0195bd4ecd351ccd7b27a23e7b9e2dd8c75e72"
+    },
+    "native_server": {
+      "bytes": 2993680,
+      "path": "/tmp/statecentric-issue67/.benchmarks/issue67-aclgraph-rust-bundle-r1/native_state_engine",
+      "sha256": "7e42e3e85f73d1df0ae2eb4dcd92a1019d2e9a0301044d07de5551e9a6621725"
+    },
+    "native_worker": {
+      "bytes": 889400,
+      "path": "/tmp/statecentric-issue67/.benchmarks/issue67-aclgraph-cpp-build-r1/statecentric_resident_full_model_probe",
+      "sha256": "16c6557f74c9bde2a29481a6c9c32641432d761ae9114fcc767f4ebd4deecbb1"
+    },
+    "oracle_family": {
+      "bytes": 112800,
+      "path": "/tmp/statecentric-issue67/results/qwen14b-independent-cold-oracle-family-o32-v1/manifest.json",
+      "sha256": "fabd268fa8a81060064c44ec2c4646284629bc660aec3b2ab2803bf442911541"
+    },
+    "plan_inspector": {
+      "bytes": 154456,
+      "path": "/tmp/statecentric-issue67/.benchmarks/issue67-aclgraph-cpp-build-r1/statecentric_qwen2_resident_plan_inspect",
+      "sha256": "438d62e9d8e88df180e7ae8d529f35cd23b3baa09cfdfa49f84b15198a3c0052"
+    },
+    "preregistration": {
+      "bytes": 4071,
+      "path": "/tmp/statecentric-issue67/benchmarks/issue67_aclgraph_dispatcher_20260816_r3_preregistration.json",
+      "sha256": "4ecc8a8b15bf133be9fd5a225e83189a26aa4573814a89c4825986b12fc4a385"
+    },
+    "prompt_family": {
+      "bytes": 5961640,
+      "path": "/tmp/statecentric-issue67/results/qwen14b-independent-cold-prompt-family-v2/manifest.json",
+      "sha256": "b4f5b01c23c8b7608f22cf427e52f44318e5ec4ac451ffefe28f261df31b8794"
+    },
+    "rust_bundle_manifest": {
+      "bytes": 19952,
+      "path": "/tmp/statecentric-issue67/.benchmarks/issue67-aclgraph-rust-bundle-r1/manifest.json",
+      "sha256": "db2b8e6486c457ca2325d2fd1c6223b3d820aef4634d888004a9b0771fa2fe8a"
+    }
+  },
+  "schema_version": 1,
+  "version": "issue67-aclgraph-dispatcher-20260816-r3"
+}
