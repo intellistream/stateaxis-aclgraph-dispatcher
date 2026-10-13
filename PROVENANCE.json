@@ -9,6 +9,9 @@
   "source_evidence": "docs/history/reports/ISSUE67_ACLGRAPH_DISPATCHER_CLOSURE_20260816.md",
   "copied_evidence": "evidence/ISSUE67_ACLGRAPH_DISPATCHER_CLOSURE_20260816.md",
   "copied_evidence_sha256": "0d6dfcee340fdbb060ec12645b16989e01ca79ab59ebdbeab14cc42dfd8a5654",
+  "machine_readable_evidence": "evidence/issue67-aclgraph-dispatcher-20260816-r3",
+  "machine_readable_source": "results/issue67-aclgraph-dispatcher-20260816-r3-3plus3",
+  "machine_readable_sha256_inventory": "evidence/issue67-aclgraph-dispatcher-20260816-r3/SHA256SUMS",
   "qualification_inherited": false,
   "implementation_extracted": true,
   "licensing": {

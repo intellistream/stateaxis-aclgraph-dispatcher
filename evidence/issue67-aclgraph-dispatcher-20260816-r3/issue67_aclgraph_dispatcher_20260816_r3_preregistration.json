@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "format": "statecentric-issue67-aclgraph-dispatcher-preregistration-v1",
+  "issue": 67,
+  "version": "issue67-aclgraph-dispatcher-20260816-r3",
+  "image": {
+    "reference": "quay.io/ascend/vllm-ascend:v0.23.0rc1-openeuler",
+    "id": "sha256:f4c89c293e076453e9eef9edb5fb9669740dccbd3c48619a9f976d775fc29b81"
+  },
+  "scope": {
+    "model": "Qwen2.5-14B-Instruct BF16",
+    "phase": "online decode",
+    "default_behavior": "eager_aclnn remains authoritative",
+    "candidate_enablement": "explicit STATE_ENGINE_ONLINE_DECODE_EXECUTION=acl_graph_dispatcher",
+    "public_protocol_change": false
+  },
+  "arms": {
+    "control": {
+      "decode_execution": "eager_aclnn",
+      "authority": "eager"
+    },
+    "candidate": {
+      "decode_execution": "acl_graph_dispatcher",
+      "authority": "descriptor/capability decision with eager fail-closed fallback"
+    }
+  },
+  "matched_configuration": {
+    "state_capacity": 33,
+    "physical_cache_blocks": 272,
+    "max_prefill_rows": 36864,
+    "max_decode_batch": 32,
+    "scheduler_max_batch_size": 32,
+    "workspace_bytes": 10737418240,
+    "client_concurrency": 32,
+    "shared_source_states": 0,
+    "shared_source_tokens": 0,
+    "max_private_cache_blocks_per_branch": 1,
+    "required_free_hbm_bytes": 57984513216,
+    "qkv_projection_policy": "serial_separate",
+    "decode_mlp_policy": "fused_gate_up_aclnn_swiglu",
+    "decode_sync_policy": "batch_end"
+  },
+  "workload": {
+    "kind": "independent-cold",
+    "requests": 128,
+    "concurrency": 32,
+    "output_tokens": 32,
+    "warmup_requests": 0,
+    "prompt_family": "results/qwen14b-independent-cold-prompt-family-v2/manifest.json",
+    "oracle_family": "results/qwen14b-independent-cold-oracle-family-o32-v1/manifest.json",
+    "timing_boundary": "fresh process startup excluded; complete matched HTTP request window included",
+    "device_event_timing": false,
+    "device_event_reason": "base timing-v5 contract; dispatcher authority and end-to-end metrics do not require device-event attribution"
+  },
+  "digest_cache": {
+    "source": "successful issue67-aclgraph-dispatcher-20260816-r2-1plus1 full-byte cache-miss run",
+    "control_sha256": "c0f70ec027361df3fc940a517236fb37b91e7fbcdc2466c86a3fe46fa11264d8",
+    "candidate_sha256": "e794c512823fc180adddbd1b6e8e5c72972f233e90c0c7348f88a395e450b878",
+    "entries_per_arm": 161,
+    "identity_rule": "canonical path + dev + inode + size + mtime_ns + byte SHA; any stat change fails closed to a full byte hash"
+  },
+  "offline_gates": {
+    "default_off_zero_behavior_change": true,
+    "canonical_descriptor_and_capability_identity": true,
+    "known_unsupported_descriptor_falls_back_to_eager": true,
+    "malformed_or_stale_identity_fails_closed": true,
+    "resident_plan_round_trip": true,
+    "native_worker_build_in_official_image": true
+  },
+  "npu_gate": {
+    "stage_one": "counterbalanced fresh-process control/candidate 1+1",
+    "promotion_to_three_plus_three": "all outputs exact, lifecycle clean, candidate authority_applied > 0, fallback_count = 0, graph rebuild_count = 0",
+    "stage_two": "fresh-process control/candidate 3+3 using C,Candidate; Candidate,C; C,Candidate order",
+    "device_admission": "two fresh snapshots; AICore=0; free HBM >= required; choose maximum free HBM; do not require device exclusivity",
+    "cleanup": "remove only experiment-owned container/processes and preserve all failed evidence"
+  },
+  "metrics": [
+    "exact and lifecycle correctness",
+    "descriptor/capability identity",
+    "authority_applied and fallback reason/count",
+    "graph capture/replay/task-update/rebuild counts",
+    "request throughput and output-token throughput",
+    "TTFT and TPOT p50/p95/p99",
+    "peak HBM and run dispersion"
+  ],
+  "claim_policy": {
+    "one_plus_one_is_performance_claim": false,
+    "three_plus_three_requires_all_runs": true,
+    "no_selective_run_deletion": true,
+    "no_speedup_claim_without_matched_evidence": true,
+    "negative_or_no_significant_difference_is_publishable": true,
+    "vllm_comparison": false
+  }
+}
